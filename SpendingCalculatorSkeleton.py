@@ -10,7 +10,7 @@ Grocery_List = []   #[item_name, item_price, item_number]
 run = True
 
 # Helper functions
-######## Input for Int or Float ################
+######## Input for Int or Float #################
 def cast_int(arg):
     try:
         return int(arg)
