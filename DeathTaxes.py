@@ -10,16 +10,16 @@ def tax(filing_status, income):
             tax = (.1*9275 + (.15*(37650-9275)) + (.25*(income-37650)))
             
         elif(income > 91150) and (income <= 190150):
-            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(income-91150))
+            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(income-91150)))
                    
         elif(income > 190150) and (income <= 413350):
-            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(income-190150))
+            tax = (.1*9275) + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(income-190150))
                    
         elif(income > 413350) and (income <= 415050):
-            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(413350-190150)) + (.35*(income-413350))
+            tax = (.1*9275) + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(413350-190150)) + (.35*(income-413350))
                    
         elif(income > 415050):
-            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(413350-190150)) + (.35*(415050-413350)) + (.396*(income-415050))
+            tax = (.1*9275 + (.15*(37650-9275)) + (.25*(91150-37650)) + (.28*(190150-91150)) + (.33*(413350-190150)) + (.35*(415050-413350)) + (.396*(income-415050)))
         
         else:
             pass          
@@ -29,7 +29,7 @@ def tax(filing_status, income):
             tax = (.1*income)
             
         elif(income > 18550) and (income <= 75300):
-            tax = (.1*18550) + (.15*(income-18550)
+            tax = (.1*18550) + (.15*(income-18550))
         
         elif(income > 75300) and (income <= 151900):
             tax = (.1*18550) + (.15*(75300-18550)) + (.25*(income-75300))
@@ -98,13 +98,14 @@ def tax(filing_status, income):
         
 filing_status = input('Your Filing Status:')
 income = int(input('How much you made last year:'))
-main(filing_status, income)
  
-def percent_of_tax(tax, income):
+def percent_of_income(tax, income):
     return((tax/income)*100)
 
 def is_valid(filing_status, income):
-    if filing_status == 'single' or 'married, filing jointly or widowed' or 'married, filing separately' or 'head of household' and income >= 0:
+    if(income < 0):
+        return False
+    elif filing_status == 'single' or 'married, filing jointly or widowed' or 'married, filing separately' or 'head of household':
         return True
     else:
         return False
